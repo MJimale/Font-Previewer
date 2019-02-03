@@ -33,8 +33,15 @@ p {
   text-align: center;
   margin-top: 5%;
   margin-bottom: 5%;
-  text-overflow: ellipsis;
+  color: #141c3a;
+  width: 10em;
+  outline: 1px solid #000;
+  margin: 0 0 2em 0;
+  
+  /**
+   * Required properties to achieve text-overflow
+   */
   white-space: nowrap;
   overflow: hidden;
-  color: #141c3a;
+  text-overflow: ellipsis;
 }
