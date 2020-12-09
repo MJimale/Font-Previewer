@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 class App extends React.Component {
@@ -8,7 +8,7 @@ class App extends React.Component {
       font: "Nunito",
       size: 12,
       weight: "normal",
-      text: "Your sample text will appear here"
+      text: " Your sample text will appear here"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSizeChange = this.handleSizeChange.bind(this);
@@ -31,8 +31,8 @@ class App extends React.Component {
     console.log(event.target.value);
     if (event.target.value === "") {
       this.setState({ size: 12 });
-    } else if (parseInt(event.target.value, 10) > 80) {
-      this.setState({ size: 80 });
+    } else if (parseInt(event.target.value, 10) > 60) {
+      this.setState({ size: 60 });
     } else {
       this.setState({ size: parseInt(event.target.value, 10) });
     }
@@ -41,47 +41,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>React Font Previewer</h1>
-        <div className="body">
-          Font Family :
-          <select onChange={this.handleChange}>
-            <option ref="font">Helvetica</option>
-            <option ref="font">Times</option>
-            <option ref="font">Impact</option>
-            <option ref="font">Courier</option>
-            <option ref="font">Verdana</option>
-          </select>
-          <br />
-          Google Font :
-          <select onChange={this.handleChange}>
-            <option ref="font">Nunito</option>
-            <option ref="font">Karla</option>
-            <option ref="font">Roboto</option>
-            <option ref="font">Staatliches</option>
-            <option ref="font">Charm</option>
-          </select>
-          <br />
-          Font Weight :
-          <select onChange={this.handleWeightChange}>
-            <option value="normal">Normal</option>
-            <option value="bold">Bold</option>
-            <option value="bolder">Bolder</option>
-            <option value="lighter">lighter</option>
-          </select>
-          <br />
-          Font Size
-          <br />
-          <input
-            value={this.state.value}
-            onChange={this.handleSizeChange}
-            type="text"
-            placeholder="12"
-            id="size"
-          />
-          <link
+        <link
             href={"https://fonts.googleapis.com/css?family=" + this.state.font}
             rel="stylesheet"
           />
+        
+        <div className="body">
+        <h3>Font Previewer</h3>
+          <div id="displaybox">
           <p
             style={{
               fontFamily: this.state.font,
@@ -89,9 +56,48 @@ class App extends React.Component {
               fontSize: this.state.size
             }}
           >
-            {this.state.text}
+             {this.state.text}
           </p>
+          </div>
+          <label htmlFor="fontFamilyOptions">Font Family : </label>
+          <select onChange={this.handleChange} id="fontFamilyOptions">
+            <option ref="font">Helvetica</option>
+            <option ref="font">Times</option>
+            <option ref="font">Impact</option>
+            <option ref="font">Courier</option>
+            <option ref="font">Verdana</option>
+          </select>
+          <br />
+          <label htmlFor="googleFontOptions">Google Font : </label>
+          <select onChange={this.handleChange} id="googleFontOptions">
+            <option ref="font">Nunito</option>
+            <option ref="font">Karla</option>
+            <option ref="font">Roboto</option>
+            <option ref="font">Staatliches</option>
+            <option ref="font">Charm</option>
+          </select>
+          <br />
+          <label htmlFor="fontWeightOptions">Font Weight : </label>
+          <select onChange={this.handleWeightChange} id="fontWeightOptions">
+            <option value="normal">Normal</option>
+            <option value="bold">Bold</option>
+            <option value="bolder">Bolder</option>
+            <option value="lighter">lighter</option>
+          </select>
+          <br />
+          <label htmlFor="fontSize">Font Size : </label>
+          <input
+            id="fontSize"
+            value={this.state.value}
+            onChange={this.handleSizeChange}
+            type="text"
+            placeholder="12"
+          />     
+          <br />
+          <label htmlFor="textInput">Input Text : </label>
+          <br />
           <textarea
+            id="textInput"
             placeholder="Type something here and see what happens..."
             onChange={e => this.setState({ text: e.target.value })}
             cols="30"

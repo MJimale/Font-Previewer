@@ -8,40 +8,34 @@ body {
 .container {
   width: 60vw;
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 .body {
-  width: 200px;
+  width: 300px;
   display: block;
   margin: 0 auto;
-  padding-top: 10px;
   margin-bottom: 10px;
 }
 
-h1 {
-  font-size: 15px;
-  width: 200px;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 2%;
-  margin-top: 2%;
-  color: #141c3a;
-}
-p {
+#displaybox{
   font-size: 20px;
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
   color: #141c3a;
-  width: 10em;
+  background:rgb(221, 219, 219);
+  width: 12em;
+  height: 80px;
   outline: 1px solid #000;
-  margin: 0 0 2em 0;
-  
+  margin-bottom: 0.5em;
+}
+
+p{
   /**
    * Required properties to achieve text-overflow
    */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+#fontSize{
+  width:80px
 }
